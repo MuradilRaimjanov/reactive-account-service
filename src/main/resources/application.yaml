@@ -1,0 +1,19 @@
+server:
+  port: 8081
+spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/reactive-account
+    username: postgres
+    password: postgres
+  sql:
+    init:
+      mode: never
+      data-locations: classpath:db/init.sql
+  jpa:
+    defer-datasource-initialization: true
+logging:
+  level:
+    org.springframework.r2dbc: DEBUG
+client:
+  client-service:
+    url: http://localhost:8080
